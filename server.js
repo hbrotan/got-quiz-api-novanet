@@ -49,7 +49,46 @@ router.get('/', function(req, res) {
 router.route('/answers')	
 	.get(function(req, res){
 		sql.execute({  
-			query: 'SELECT [Name],[Q1],[Q2],[Q3],[Q4],[Q5],[Q6],[Q7],[Q8],[Q9],[Q10],[Q11],[Q12],[Q13],[Q14],[Q15],[Q16],[Q17],[Q18],[Q19],[Q20],[Q21],[Q22],[Q23],[Q24],[Q25],[Q26],[Q27],[Q28],[Q29],[Q30] FROM dbo.GotQuizNovanet X WHERE X.Id = (SELECT MAX(Id) FROM dbo.GotQuizNovanet WHERE Email = X.Email) ORDER BY [Name]'
+			query: 
+			`SELECT [Name],[Q1],[Q2],[Q3],[Q4],[Q5],[Q6],[Q7],[Q8],[Q9],[Q10],[Q11],[Q12],[Q13],[Q14],[Q15],[Q16],[Q17],[Q18],[Q19],[Q20],[Q21],[Q22],[Q23],[Q24],[Q25],[Q26],[Q27],[Q28],[Q29],[Q30], 
+					(CASE [Q1] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q2] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q3] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q4] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q5] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q6] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q7] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q8] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q9] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q10] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q11] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q12] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q13] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q14] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q15] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q16] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q17] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q18] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q19] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q20] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q21] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q22] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q23] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q24] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q25] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q26] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q27] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q28] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q29] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q30] WHEN 'L' THEN 2 ELSE 0 END) as Points,
+					30 - LEN(REPLACE([Q1]+[Q2]+[Q3]+[Q4]+[Q5]+[Q6]+[Q7]+[Q8]+[Q9]+[Q10]+[Q11]+[Q12]+[Q13]+[Q14]+[Q15]+[Q16]+[Q17]+[Q18]+[Q19]+[Q20]+[Q21]+[Q22]+[Q23]+[Q24]+[Q25]+[Q26]+[Q27]+[Q28]+[Q29]+[Q30],'L', '') ) as CountSurvive,
+					30 - LEN(REPLACE([Q1]+[Q2]+[Q3]+[Q4]+[Q5]+[Q6]+[Q7]+[Q8]+[Q9]+[Q10]+[Q11]+[Q12]+[Q13]+[Q14]+[Q15]+[Q16]+[Q17]+[Q18]+[Q19]+[Q20]+[Q21]+[Q22]+[Q23]+[Q24]+[Q25]+[Q26]+[Q27]+[Q28]+[Q29]+[Q30],'D', '') ) as CountDead,
+					30 - LEN(REPLACE([Q1]+[Q2]+[Q3]+[Q4]+[Q5]+[Q6]+[Q7]+[Q8]+[Q9]+[Q10]+[Q11]+[Q12]+[Q13]+[Q14]+[Q15]+[Q16]+[Q17]+[Q18]+[Q19]+[Q20]+[Q21]+[Q22]+[Q23]+[Q24]+[Q25]+[Q26]+[Q27]+[Q28]+[Q29]+[Q30],'T', '') ) as CountThrone,
+					30 - LEN(REPLACE([Q1]+[Q2]+[Q3]+[Q4]+[Q5]+[Q6]+[Q7]+[Q8]+[Q9]+[Q10]+[Q11]+[Q12]+[Q13]+[Q14]+[Q15]+[Q16]+[Q17]+[Q18]+[Q19]+[Q20]+[Q21]+[Q22]+[Q23]+[Q24]+[Q25]+[Q26]+[Q27]+[Q28]+[Q29]+[Q30],'W', '') ) as CountWhiteWalker
+				FROM dbo.GotQuizNovanet X 
+				WHERE X.Id = (SELECT MAX(Id) FROM dbo.GotQuizNovanet WHERE Email = X.Email) 
+				ORDER BY Points DESC, [Name] ASC`
+			
 		}).then( function( results ) {
 			res.send(results);
 		}).catch(function(error){
