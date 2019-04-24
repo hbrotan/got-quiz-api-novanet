@@ -49,7 +49,7 @@ router.get('/', function(req, res) {
 router.route('/characters')	
 	.get(function(req, res){
 		sql.execute({  
-			query: 'SELECT [Name], [Status] FROM dbo.GotQuizCharacters'
+			query: 'SELECT [Name], [Status] FROM dbo.GotQuizCharacters ORDER BY CAST(SUBSTRING(ID,2,2) as INT)'
 		}).then( function( results ) {
 			res.send(results);
 		}).catch(function(error){
