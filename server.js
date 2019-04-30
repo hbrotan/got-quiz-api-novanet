@@ -72,12 +72,12 @@ router.route('/answers')
 					CASE [Q7] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q8] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q9] WHEN 'L' THEN 2 ELSE 0 END + 
-					CASE [Q10] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q10] WHEN 'D' THEN 2 ELSE 0 END + 
 					CASE [Q11] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q12] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q13] WHEN 'L' THEN 2 ELSE 0 END + 
-					CASE [Q14] WHEN 'L' THEN 2 ELSE 0 END + 
-					CASE [Q15] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q14] WHEN 'D' THEN 2 ELSE 0 END + 
+					CASE [Q15] WHEN 'D' THEN 2 ELSE 0 END + 
 					CASE [Q16] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q17] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q18] WHEN 'L' THEN 2 ELSE 0 END + 
@@ -90,9 +90,9 @@ router.route('/answers')
 					CASE [Q25] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q26] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q27] WHEN 'L' THEN 2 ELSE 0 END + 
-					CASE [Q28] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q28] WHEN 'D' THEN 2 ELSE 0 END + 
 					CASE [Q29] WHEN 'L' THEN 2 ELSE 0 END + 
-					CASE [Q30] WHEN 'W' THEN 2 ELSE 0 END) as Points,
+					CASE [Q30] WHEN 'D' THEN 2 ELSE 0 END) as Points,
 					30 - LEN(REPLACE([Q1]+[Q2]+[Q3]+[Q4]+[Q5]+[Q6]+[Q7]+[Q8]+[Q9]+[Q10]+[Q11]+[Q12]+[Q13]+[Q14]+[Q15]+[Q16]+[Q17]+[Q18]+[Q19]+[Q20]+[Q21]+[Q22]+[Q23]+[Q24]+[Q25]+[Q26]+[Q27]+[Q28]+[Q29]+[Q30],'L', '') ) as CountSurvive,
 					30 - LEN(REPLACE([Q1]+[Q2]+[Q3]+[Q4]+[Q5]+[Q6]+[Q7]+[Q8]+[Q9]+[Q10]+[Q11]+[Q12]+[Q13]+[Q14]+[Q15]+[Q16]+[Q17]+[Q18]+[Q19]+[Q20]+[Q21]+[Q22]+[Q23]+[Q24]+[Q25]+[Q26]+[Q27]+[Q28]+[Q29]+[Q30],'D', '') ) as CountDead,
 					30 - LEN(REPLACE([Q1]+[Q2]+[Q3]+[Q4]+[Q5]+[Q6]+[Q7]+[Q8]+[Q9]+[Q10]+[Q11]+[Q12]+[Q13]+[Q14]+[Q15]+[Q16]+[Q17]+[Q18]+[Q19]+[Q20]+[Q21]+[Q22]+[Q23]+[Q24]+[Q25]+[Q26]+[Q27]+[Q28]+[Q29]+[Q30],'T', '') ) as CountThrone,
