@@ -88,7 +88,7 @@ router.route('/answers')
 					CASE [Q23] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q24] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q25] WHEN 'L' THEN 2 ELSE 0 END + 
-					CASE [Q26] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q26] WHEN 'D' THEN 2 ELSE 0 END + 
 					CASE [Q27] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q28] WHEN 'D' THEN 2 ELSE 0 END + 
 					CASE [Q29] WHEN 'L' THEN 2 ELSE 0 END + 
