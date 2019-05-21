@@ -66,11 +66,11 @@ router.route('/answers')
 					(CASE [Q1] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q2] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q3] WHEN 'L' THEN 2 ELSE 0 END + 
-					CASE [Q4] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q4] WHEN 'T' THEN 6 ELSE 0 END + 
 					CASE [Q5] WHEN 'D' THEN 2 ELSE 0 END + 
 					CASE [Q6] WHEN 'D' THEN 2 ELSE 0 END + 
 					CASE [Q7] WHEN 'L' THEN 2 ELSE 0 END + 
-					CASE [Q8] WHEN 'L' THEN 2 ELSE 0 END + 
+					CASE [Q8] WHEN 'D' THEN 2 ELSE 0 END + 
 					CASE [Q9] WHEN 'L' THEN 2 ELSE 0 END + 
 					CASE [Q10] WHEN 'D' THEN 2 ELSE 0 END + 
 					CASE [Q11] WHEN 'D' THEN 2 ELSE 0 END + 
